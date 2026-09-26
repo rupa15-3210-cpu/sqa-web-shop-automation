@@ -5,7 +5,6 @@ import { SearchPage } from '../pages/search/searchPage.js';
 import { CartPage } from '../pages/cart/cartPage.js';
 import { CheckoutPage } from '../pages/checkout/checkoutPage.js';
 
-
 test('Product Search E2E', async ({ page }) => {
 
   const searchPage = new SearchPage(page);
@@ -29,11 +28,6 @@ test('Product Search E2E', async ({ page }) => {
   // Add Product to Cart
   await productPage.addBackpackToCart();
 
-  console.log(
-    'Cart count:',
-    await productPage.cartCount.innerText()
-  );
-
   // Open Cart
   await productPage.openCart();
 
@@ -48,25 +42,6 @@ test('Product Search E2E', async ({ page }) => {
   await cartPage.clickCheckout();
 
   await page.waitForTimeout(2000);
-
-  console.log(
-    'After checkout URL:',
-    page.url()
-  );
-
-  console.log(
-    'Guest button count:',
-    await page
-      .getByText('Checkout as Guest', { exact: true })
-      .count()
-  );
-
-  console.log(
-    'Guest text:',
-    await page
-      .getByText('Checkout as Guest', { exact: true })
-      .allTextContents()
-  );
 
   // Checkout as Guest
   await checkoutPage.checkoutAsGuest();
