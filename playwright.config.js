@@ -2,6 +2,10 @@ import { defineConfig, devices } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
+  reporter: [
+  ['html', { outputFolder: 'playwright-report', open: 'never' }],
+  ['allure-playwright', { outputFolder: 'allure-results' }],
+],
 
   use: {
     baseURL: 'https://demowebshop.tricentis.com/',
