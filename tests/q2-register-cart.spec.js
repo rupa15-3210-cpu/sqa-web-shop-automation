@@ -15,14 +15,14 @@ test('Register new customer', async ({ page }) => {
     await registerPage.fillRegistrationForm(
         'Rupa',
         'Khatun',
-        'rupamonitest20260926@gmail.com',
+        'rupamonitest20260928@gmail.com',
         'Rupa@12345'
     );
 
     await loginPage.goto();
 
     await loginPage.login(
-        'rupamonitest20260926@gmail.com',
+        'rupamonitest20260928@gmail.com',
         'Rupa@12345'
     );
 
